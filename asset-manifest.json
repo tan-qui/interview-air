@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/interview-air/static/css/main.92c71ac3.css",
+    "main.js": "/interview-air/static/js/main.5082ef20.js",
+    "service-worker.js": "/interview-air/service-worker.js",
+    "index.html": "/interview-air/index.html",
+    "main.92c71ac3.css.map": "/interview-air/static/css/main.92c71ac3.css.map",
+    "main.5082ef20.js.map": "/interview-air/static/js/main.5082ef20.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.92c71ac3.css",
+    "static/js/main.5082ef20.js"
+  ]
+}
