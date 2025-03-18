@@ -43,7 +43,7 @@ class Header extends Component<IProps, IState> {
     let { } = this.state;
     return (
       <div className='header'>
-        <h1>Header</h1>
+        <h3>Header</h3>
       </div>
     );
   }

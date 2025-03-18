@@ -19,7 +19,7 @@ const connector = connect(mapStateToProps, mapDispatchToProps);
 type PropsFromRedux = ConnectedProps<typeof connector>;
 
 type IProps = PropsFromRedux & LocalizeContextProps & {
-  acId: number
+  mode: string
 };
 
 interface IState {
@@ -43,10 +43,10 @@ class ModeSelector extends Component<IProps, IState> {
 
   render() {
     let { } = this.state;
-    let { acId } = this.props;
+    let { mode } = this.props;
     return (
       <div>
-        <h1>ModeSelector {acId}</h1>
+        <h3><strong>Mode selector:</strong> {mode}</h3>
       </div>
     );
   }

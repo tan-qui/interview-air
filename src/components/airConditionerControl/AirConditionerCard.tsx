@@ -25,43 +25,51 @@ const connector = connect(mapStateToProps, mapDispatchToProps);
 type PropsFromRedux = ConnectedProps<typeof connector>;
 
 type IProps = PropsFromRedux & LocalizeContextProps & {
-  acId: number;
+  air: any;
 };
 
 interface IState {
-
+  status: boolean
 };
 
 class AirConditionerCard extends Component<IProps, IState> {
   constructor(props: any) {
     super(props);
     this.state = {
-
+      status: false,
     };
 
   }
 
   componentDidMount() {
-    console.log(this.props.acId);
+    console.log(this.props.air);
+    this.setState({
+      status: this.props.air.status
+    });
   }
 
   componentWillUnmount() {
   }
 
+  onToggle = () => {
+    let { status } = this.state;
+    this.setState({
+      status: !status
+    });
+  }
+
   render() {
-    let { acId } = this.props;
-    let { } = this.state;
+    let { status } = this.state;
+    let { air } = this.props;
     return (
-      <div className='air-conditioner-card'>
-        <h1>AirConditionerCard with {acId}</h1>
-        <div>
-          <Icon type="ac-status" />
-          <TemperatureControl acId={acId} />
-          <ModeSelector acId={acId} />
-          <FanSpeedControl acId={acId} />
-          <TimerControl acId={acId} />
-          <ToggleSwitch status={"on"} />
-        </div>
+      <div className='bg-[#f0f0f0] rounded-2xl p-[10px] m-[10px] shadow-md'>
+        <h1 className='text-red-500'><strong>{air.name}</strong></h1>
+        <Icon icon={air.icon} />
+        <TemperatureControl temperature={air.temperature} />
+        <ModeSelector mode={air.mode} />
+        <FanSpeedControl fanSpeed={air.fanSpeed} />
+        <TimerControl timer={air.timer} />
+        <ToggleSwitch status={status} onToggle={() => this.onToggle()} />
       </div>
     );
   }

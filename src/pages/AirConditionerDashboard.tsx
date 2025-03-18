@@ -9,6 +9,51 @@ import Header from '../components/layout/Header';
 import Footer from '../components/layout/Footer';
 import AirConditionerCard from '../components/airConditionerControl/AirConditionerCard';
 
+const lstAirFake = [
+  {
+    id: 1,
+    name: "Living Room",
+    icon: "icon on",
+    temperature: {
+      current: 23,
+      min: 18,
+      max: 30,
+    },
+    fanSpeed: "auto",
+    mode: "cool",
+    timer: 10,
+    status: true,
+  },
+  {
+    id: 2,
+    name: "Bed Room",
+    icon: "icon off",
+    temperature: {
+      current: 23,
+      min: 16,
+      max: 32,
+    },
+    mode: "hot",
+    fanSpeed: 46,
+    timer: 15,
+    status: false,
+  },
+  {
+    id : 3,
+    name: "Kitchen",
+    icon: "icon off",
+    temperature: {
+      current: 22,
+      min: 12,
+      max: 33,
+    },
+    mode: "cool",
+    fanSpeed: 36,
+    timer: 20,
+    status: true,
+  }
+
+];
 
 const mapStateToProps = (state: any) => {
   return {
@@ -60,16 +105,21 @@ class App extends Component<IProps, IState> {
   componentWillUnmount(): void {
   }
 
+  
+
   render() {
 
     return (
       // TODO add loading spinner
       <div>
         <Header />
-        <div>
+        <div className='p-[120px] flex flex-wrap justify-center gap-1'>
           {/* Repeat AirConditionerCard for multiple ACs */}
-          <AirConditionerCard acId={1} />
-          <AirConditionerCard acId={2} />
+          {
+            lstAirFake.map((item, index) => {
+              return <AirConditionerCard key={index} air={item} />
+            })
+          }
         </div>
         <Footer />
       </div>

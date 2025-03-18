@@ -1,6 +1,6 @@
 @charset "UTF-8";
+@import "./tailwind.css";
 
-// reset css
 body,
 html {
     margin: 0;
@@ -8,39 +8,23 @@ html {
 }
 
 .header {
-    background-color: #c6c6c6;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #5b5858;
     color: #fff;
     padding: 10px;
     text-align: center;
 }
 
 .footer {
-    background-color: #c6c6c6;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #5b5858;
     color: #fff;
     padding: 10px;
     text-align: center;
-}
-
-.air-conditioner-card {
-    background-color: #f0f0f0;
-    border-radius: 10px;
-    padding: 10px;
-    margin: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-
-    .button-group {
-        display: flex;
-        gap: 12;
-        align-items: center;
-        justify-content: center;
-
-        .button {
-            padding: 5px 10px;
-            border-radius: 5px;
-            cursor: pointer;
-            width: 80px;
-        }
-    }
-
 }

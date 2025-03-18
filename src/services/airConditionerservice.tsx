@@ -1,4 +1,4 @@
-import { endPoint } from "../data/end-point";
+import { endPoint } from "../data/endPoint";
 import { serviceApi } from "./api.service";
 
 export const airConditionerservice = {

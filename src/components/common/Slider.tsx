@@ -5,7 +5,6 @@ type IProps = LocalizeContextProps & {
   min: number,
   max: number,
   current: number,
-  onChange: () => void
 };
 
 interface IState {
@@ -29,10 +28,11 @@ class Slider extends Component<IProps, IState> {
 
   render() {
     let { } = this.state;
-    let { min, max, current, onChange } = this.props;
+    let { min, max, current } = this.props;
     return (
       <div>
-        <h1>Slider {min} - {max} - {current}</h1>
+        <h3><strong>Slider:</strong></h3>
+        <input readOnly className='w-full' type="range" min={min} max={max} value={current} />
       </div>
     );
   }

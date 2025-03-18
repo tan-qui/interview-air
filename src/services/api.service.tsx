@@ -1,5 +1,5 @@
 import axios, { AxiosRequestConfig } from "axios";
-import { pathUrl } from "../data/path-url";
+import { pathUrl } from "../data/pathUrl";
 import { getNavigate } from "../navigate-service.";
 
 const headers: any = {

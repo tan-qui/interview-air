@@ -21,10 +21,11 @@ const connector = connect(mapStateToProps, mapDispatchToProps);
 type PropsFromRedux = ConnectedProps<typeof connector>;
 
 type IProps = PropsFromRedux & LocalizeContextProps & {
-  acId: number
+  temperature: any
 };
 
 interface IState {
+  current: number
 
 };
 
@@ -32,33 +33,46 @@ class TemperatureControl extends Component<IProps, IState> {
   constructor(props: any) {
     super(props);
     this.state = {
-
+      current: 0
     };
 
   }
 
   componentDidMount() {
+    this.setState({
+      current: this.props.temperature.current
+    });
   }
 
   componentWillUnmount() {
   }
 
-  onChange() {
-    // TODO
+  onClick = (type: string) => {
+    console.log("type", type);
+    let { current } = this.state;
+    if (type === "Incr" && current < this.props.temperature.max) {
+      current++;
+    }
+    else if (type === "Decr" && current > this.props.temperature.min) {
+      current--;
+    }
+    this.setState({
+      current: current
+    });
+
   }
 
   render() {
-    let { } = this.state;
-    let { acId } = this.props;
+    let { current } = this.state;
+    let { temperature } = this.props;
     return (
       <div>
-        <h1>TemperatureControl {acId} </h1>
         <div>
-          <Slider min={1} max={30} current={2} onChange={() => this.onChange()} />
+          <Slider min={temperature.min} max={temperature.max} current={current} />
         </div>
-        <div className='button-group'>
-          <Button label="Increase" />
-          <Button label="Decrease" />
+        <div className='flex justify-between gap-12'>
+          <Button label="Decrease" onClick={() => this.onClick("Decr")} />
+          <Button label="Increase" onClick={() => this.onClick("Incr")} />
         </div>
       </div>
     );

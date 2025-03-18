@@ -2,7 +2,7 @@ import { Component } from 'react';
 import { LocalizeContextProps, withLocalize } from "react-localize-redux";
 
 type IProps = LocalizeContextProps & {
-  type: string;
+  icon: string;
 };
 
 interface IState {
@@ -25,10 +25,10 @@ class Icon extends Component<IProps, IState> {
 
   render() {
     let { } = this.state;
-    let { type } = this.props;
+    let { icon } = this.props;
     return (
       <div>
-        <h1>Icon {type}</h1>
+        <h3><strong>Icon:</strong> {icon}</h3>
       </div>
     );
   }

@@ -19,7 +19,7 @@ const connector = connect(mapStateToProps, mapDispatchToProps);
 type PropsFromRedux = ConnectedProps<typeof connector>;
 
 type IProps = PropsFromRedux & LocalizeContextProps & {
-  acId: number;
+  fanSpeed: any;
 };
 
 interface IState {
@@ -43,10 +43,10 @@ class FanSpeedControl extends Component<IProps, IState> {
 
   render() {
     let { } = this.state;
-    let { acId } = this.props;
+    let { fanSpeed } = this.props;
     return (
       <div>
-        <h1>FanSpeedControl {acId}</h1>
+        <h3><strong>Fan speed control:</strong> {fanSpeed}</h3>
       </div>
     );
   }

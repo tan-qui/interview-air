@@ -1,5 +1,5 @@
 import React from "react";
-import { pathUrl } from "./path-url";
+import { pathUrl } from "./pathUrl";
 
 const page500 = React.lazy(() => import("../pages/Page500"));
 const page404 = React.lazy(() => import("../pages/Page404"));

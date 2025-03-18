@@ -19,7 +19,7 @@ const connector = connect(mapStateToProps, mapDispatchToProps);
 type PropsFromRedux = ConnectedProps<typeof connector>;
 
 type IProps = PropsFromRedux & LocalizeContextProps & {
-  acId: number
+  timer: number
 };
 
 interface IState {
@@ -43,10 +43,10 @@ class TimerControl extends Component<IProps, IState> {
 
   render() {
     let { } = this.state;
-    let { acId } = this.props;
+    let { timer } = this.props;
     return (
       <div>
-        <h1>TimerControl {acId}</h1>
+        <h3><strong>Timer control:</strong> {timer} second</h3>
       </div>
     );
   }
